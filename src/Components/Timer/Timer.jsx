@@ -18,12 +18,18 @@ class Timer extends Component {
             })
              setInterval(() => { 
                  let num = this.state.timeSeconds++
-                 console.log(num)
-                if (num > this.state.timeSeconds) {
+                 
+                if (this.state.timeSeconds < num) {
                     this.setState({
                         ...this.state, timeSeconds: num
                     })
+                } else if (this.state.timeSeconds === 60) {
+                    this.setState({
+                        ...this.state, timeSeconds: 0
+                    })
                 }
+                console.log('this is state', this.state.timeSeconds)
+                 
                    
              }, 1000);
         } else {
