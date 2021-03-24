@@ -134,8 +134,12 @@ class Timer extends Component {
     render() {
         return (
             <div>
-                <h1> {this.state.timeHours} : {this.state.timeMinutes} : {this.state.timeSeconds}</h1>
+                {this.state.tenMinutes ? <h1> {this.state.timeHours} </h1> : <h1> 0{this.state.timeHours} </h1>}
 
+                {this.state.tenMinutes ? <h1> {this.state.timeMinutes}</h1> : <h1> 0{this.state.timeMinutes} </h1>}
+
+                {this.state.tenSeconds ? <h1> {this.state.timeSeconds}</h1> : <h1> 0{this.state.timeSeconds}</h1> }
+                
                 <button onClick={this.StartTimer}>
                     Start
                 </button>
