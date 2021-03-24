@@ -9,7 +9,6 @@ class Timer extends Component {
         tenSeconds: false,
         tenMinutes:false,
         tenHours: false,
-        timeMilliseconds: 0,
         timeSeconds: 0,
         timeMinutes: 0,
         timeHours: 0,
@@ -25,8 +24,6 @@ class Timer extends Component {
                 ...self.state, timeSeconds: sec
             });
         };
-
-        
         
         if (self.state.timeSeconds === 60) {
             let min = self.state.timeMinutes + 1
@@ -48,9 +45,7 @@ class Timer extends Component {
                 tenSeconds: false
             })
             console.log(this.state.tenSeconds, 'ten seconds')
-        }
-
-        
+        };
 
         if (self.state.timeMinutes === 60) {
             let hour = self.state.timeHours + 1
@@ -97,7 +92,6 @@ class Timer extends Component {
                 timerPause: false
             });
             this.state.intervalId = setInterval(this.increment.bind(this), 1000);
-
             console.log('Timer started')
         } else {
             console.log('already on')
@@ -147,6 +141,7 @@ class Timer extends Component {
                     <h1>:</h1>
                     {this.state.tenSeconds ? <h1> {this.state.timeSeconds}</h1> : <h1> 0{this.state.timeSeconds}</h1>}
                 </div>
+                <p>{this.state.timeMilliseconds}</p>
                 <div className="buttons">
                 <button onClick={this.StartTimer}>
                     Start
